@@ -23,7 +23,7 @@
                 @check="handleCheck"
                 @node-click="nodeClick"
                 :filter-node-method="filterNode"
-                :current-node-key="!multiple? value : ''">
+                :current-node-key="!multiple? value : null">
             </el-tree>
         </el-option>
     </el-select>
@@ -101,24 +101,21 @@ export default {
         return {
             selectLabel: null, // 选中的label
             selectData: null, // 选中的对象
-            defaultExpandedKeys: [], // 树默认展开keys
-            filterText: ''
+            defaultExpandedKeys: [] // 树默认展开keys
         };
     },
     mounted() {
         if (this.multiple) {
             this.setLabels(this.options);
+            this.$refs.tree.setCheckedKeys(this.value || []);
             if (!this.value || this.value.length == 0) {
                 this.selectLabel = [];
-                this.$refs.tree.setCheckedKeys([]);
-            } else {
-                this.$refs.tree.setCheckedKeys(this.value);
             }
             this.defaultExpandedKeys = this.value || [];
         } else {
             this.setLabel(this.options);
             if (!this.value) {
-                this.selectLabel = '';
+                this.selectLabel = null;
             }
             this.defaultExpandedKeys = this.value? [this.value] : [];
         }
@@ -133,12 +130,14 @@ export default {
                 if (!val || val.length == 0) {
                     this.selectLabel = [];
                 }
+                this.defaultExpandedKeys = this.value || [];
             } else {
                 this.setLabel(this.options);
                 this.$refs.tree.setCurrentKey(val || null);
-                if (!val || val.length == 0) {
-                    this.selectLabel = '';
+                if (!val) {
+                    this.selectLabel = null;
                 }
+                this.defaultExpandedKeys = this.value? [this.value] : [];
             }
         },
         options(val) {
