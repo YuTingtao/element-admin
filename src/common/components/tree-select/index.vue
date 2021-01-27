@@ -197,14 +197,14 @@ export default {
         handleCheck(current, data) {
             if(this.multiple) {
                 this.$emit('handleChange', data.checkedKeys);
-                this.$emit('getData', data);
+                this.$emit('getCurrent', data);
             }
         },
         // 单选：获取当前被选中节点
         nodeClick(data) {
             if (!this.multiple) {
                 this.$emit('handleChange', data[this.nodeKey]);
-                this.$emit('getData', data);
+                this.$emit('getCurrent', data);
                 this.$refs.select.blur();
             }
         },
@@ -215,16 +215,16 @@ export default {
             this.selectData.splice(index, 1);
             let val = this.selectData.map(item => item[this.nodeKey]);
             this.$emit('handleChange', val);
-            this.$emit('getData', this.selectData);
+            this.$emit('getCurrent', this.selectData);
         },
         // select清空
         handleClear() {
             if (this.multiple) {
                 this.$emit('handleChange', []);
-                this.$emit('getData', []);
+                this.$emit('getCurrent', []);
             } else {
-                this.$emit('handleChange', null);
-                this.$emit('getData', null);
+                this.$emit('handleChange', '');
+                this.$emit('getCurrent', '');
             }
         },
         // 搜索
