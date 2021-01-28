@@ -58,7 +58,7 @@ table {
 
 input, textarea, button, select {
     outline: none;
-    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft Yahei", sans-serif;
+    font-family: inherit;
     font-size: 14px;
     color: #333;
 }
@@ -84,19 +84,19 @@ input {
     height: 36px;
     line-height: 34px\9;
     padding: 0 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #e6e8ea;
 }
 
 textarea{
     padding: 6px 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #e6e8ea;
     resize: vertical;
 }
 
 select{
     height: 36px;
     padding: 0 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #e6e8ea;
 }
 
 button{

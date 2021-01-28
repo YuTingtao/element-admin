@@ -13,18 +13,27 @@ body{
     overflow-y: hidden;
 }
 
-
 .g-head{
     position: relative;
     z-index: 10;
     display: flex;
     align-items: center;
-    background: #384756;
+    background: #3C4A59;
     color: #fff;
     .icon-collapse{
         margin-right: 20px;
         font-size: 20px;
         cursor: pointer;
+    }
+    .el-breadcrumb__inner.is-link, .el-breadcrumb__inner a{
+        font-weight: normal;
+        color: #fff;
+    }
+    .el-breadcrumb__item:last-child .el-breadcrumb__inner, 
+    .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover, 
+    .el-breadcrumb__item:last-child .el-breadcrumb__inner a, 
+    .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover {
+        color: #fff;
     }
     .right-dropdown{
         margin-left: auto;
@@ -39,11 +48,20 @@ body{
             margin-left: 3px;
         }
     }
-    .el-breadcrumb__inner.is-link, .el-breadcrumb__inner a{
-        font-weight: normal;
-        color: #fff;
+}
+
+.g-logo{
+    flex-shrink: 0;
+    margin-right: 50px;
+    line-height: 30px;
+    img{
+        display: inline-block;
+        margin-right: 10px;
+        height: 30px;
     }
-    .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover, .el-breadcrumb__item:last-child .el-breadcrumb__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover {
+    h2{
+        display: inline-block;
+        font-size: 15px;
         color: #fff;
     }
 }
@@ -64,32 +82,9 @@ body{
     .el-menu:not(.el-menu--collapse){
         width: 200px;
     }
-    .el-menu-item.is-active{
-        color: $primary;
-    }
     .el-menu-item, .el-submenu__title{
         height: 50px;
         line-height: 50px;
-    }
-    .g-logo{
-        height: 52px;
-        line-height: 52px;
-        background: #384756 !important;
-    }
-}
-
-.g-logo{
-    img{
-        display: inline-block;
-        margin-left: -1px;
-        margin-right: 10px;
-        max-width: 30px;
-        max-height: 30px;
-    }
-    span{
-        font-size: 15px;
-        font-weight: bold;
-        color: #fff;
     }
 }
 

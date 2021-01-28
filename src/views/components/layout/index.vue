@@ -1,38 +1,38 @@
 <template>
     <el-container class="g-layout">
-        <el-scrollbar class="g-aside">
-            <!-- 左侧菜单 -->
-            <el-menu
-                router
-                :default-active="$route.meta.activePath || $route.path"
-                :collapse="isCollapse"
-                unique-opened
-                background-color="#46586a"
-                text-color="#fff">
-                <el-menu-item class="g-logo" index="/index">
-                    <img :src="publicPath + 'logo.png'" alt="">
-                    <span>管理后台</span>
-                </el-menu-item>
-                <menu-item :data="menuList"></menu-item>
-            </el-menu>
-        </el-scrollbar>
+        <!-- 头部 -->
+        <el-header class="g-head" height="52px">
+            <div class="g-logo" index="/index">
+                <img :src="publicPath + 'logo.png'" alt="">
+                <h2>管理后台</h2>
+            </div>
+            <!-- 暂开收起图标 -->
+            <i class="icon-collapse"
+                :class="isCollapse? 'el-icon-s-unfold':'el-icon-s-fold'"
+                @click="isCollapse = !isCollapse"></i>
+            <!-- 面包屑 -->
+            <breadcrumb></breadcrumb>
+            <!-- 右侧 -->
+            <el-dropdown class="right-dropdown" size="medium" @command="rightCommand">
+                <span class="name">{{ userInfo.name }}<i class="el-icon-arrow-down"></i></span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item command="logout">退出</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+        </el-header>
         <el-container>
-            <!-- 头部 -->
-            <el-header class="g-head" height="52px">
-                <!-- 暂开收起图标 -->
-                <i class="icon-collapse"
-                    :class="isCollapse? 'el-icon-s-unfold':'el-icon-s-fold'"
-                    @click="isCollapse = !isCollapse"></i>
-                <!-- 面包屑 -->
-                <breadcrumb></breadcrumb>
-                <!-- 用户 -->
-                <el-dropdown class="right-dropdown" size="medium" @command="rightCommand">
-                    <span class="name">{{ userInfo.name }}<i class="el-icon-arrow-down"></i></span>
-                    <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item command="logout">退出</el-dropdown-item>
-                    </el-dropdown-menu>
-                </el-dropdown>
-            </el-header>
+            <el-scrollbar class="g-aside">
+                <!-- 左侧菜单 -->
+                <el-menu
+                    router
+                    :default-active="$route.meta.activePath || $route.path"
+                    :collapse="isCollapse"
+                    unique-opened
+                    background-color="#4B5D6F"
+                    text-color="#fff">
+                    <menu-item :data="menuList"></menu-item>
+                </el-menu>
+            </el-scrollbar>
             <!-- 页面主体 -->
             <el-main class="g-main">
                 <router-view></router-view>
@@ -61,7 +61,7 @@ export default {
     },
     created() {
         // 小屏左侧菜单默认收起
-        if (document.body.clientWidth < 1366) {
+        if (document.body.offsetWidth < 1366) {
             this.isCollapse = true;
         }
     },
