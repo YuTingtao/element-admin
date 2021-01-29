@@ -1,9 +1,9 @@
 <template>
     <el-container class="g-layout">
         <!-- 头部 -->
-        <el-header class="g-head" height="52px">
+        <el-header class="g-head" :height="headHeight">
             <div class="g-logo" index="/index">
-                <img :src="publicPath + 'logo.png'" alt="">
+                <img :src="'./logo.png'" alt="">
                 <h2>管理后台</h2>
             </div>
             <!-- 暂开收起图标 -->
@@ -20,7 +20,7 @@
                 </el-dropdown-menu>
             </el-dropdown>
         </el-header>
-        <el-container>
+        <el-container class="g-content">
             <el-scrollbar class="g-aside">
                 <!-- 左侧菜单 -->
                 <el-menu
@@ -34,8 +34,8 @@
                 </el-menu>
             </el-scrollbar>
             <!-- 页面主体 -->
-            <el-main class="g-main">
-                <router-view></router-view>
+            <el-main>
+                <router-view class="g-page"></router-view>
             </el-main>
         </el-container>
     </el-container>
@@ -51,6 +51,7 @@ export default {
     data() {
         return {
             isCollapse: false, // 菜单是否收起
+            headHeight: '60px', // head高度
         }
     },
     computed: {
@@ -63,6 +64,9 @@ export default {
         // 小屏左侧菜单默认收起
         if (document.body.offsetWidth < 1366) {
             this.isCollapse = true;
+        }
+        if (document.body.offsetWidth < 1600) {
+            this.headHeight = '50px';
         }
     },
     methods: {

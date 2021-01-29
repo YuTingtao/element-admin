@@ -5,8 +5,9 @@ import App from './App.vue'
 import axios from './request/httpServe.js'
 
 import Element from 'element-ui';
-import './assets/css/reset.css'
-import './assets/scss/element.scss'
+import './assets/scss/base/reset.css'
+import './assets/scss/base/element.scss'
+import './assets/scss/base/layout.scss'
 import './assets/scss/common.scss'
 import mixins from './common/mixins'
 
