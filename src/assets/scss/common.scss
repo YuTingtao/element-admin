@@ -17,18 +17,18 @@
 }
 
 .el-tooltip__popper.is-dark{
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(20, 20, 20, 0.85);
     &[x-placement^="top"] .popper__arrow{
-        border-top-color: rgba(0, 0, 0, 0.75);
+        border-top-color: rgba(30, 30, 30, 0.85);
     }
     &[x-placement^="bottom"] .popper__arrow{
-        border-bottom-color: rgba(0, 0, 0, 0.75);
+        border-bottom-color: rgba(30, 30, 30, 0.85);
     }
     &[x-placement^="left"] .popper__arrow{
-        border-left-color: rgba(0, 0, 0, 0.75);
+        border-left-color: rgba(30, 30, 30, 0.85);
     }
     &[x-placement^="right"] .popper__arrow{
-        border-right-color: rgba(0, 0, 0, 0.75);
+        border-right-color: rgba(30, 30, 30, 0.85);
     }
     & .popper__arrow:after{
         border: none;
