@@ -11,21 +11,21 @@ export default {
     created() {
         // 防止vuex刷新失效
         window.addEventListener('beforeunload', () => {
-            sessionStorage.setItem('vuex-admin', JSON.stringify(this.$store.state));
-            sessionStorage.setItem('redirect', this.$route.fullPath);
+            sessionStorage.vuex = JSON.stringify(this.$store.state);
+            sessionStorage.redirect = this.$route.fullPath;
         }, false);
-        if (sessionStorage.getItem('vuex-admin') ) {
+        if (sessionStorage.vuex) {
             this.$store.replaceState(Object.assign(
                     {},
                     this.$store.state,
-                    JSON.parse(sessionStorage.getItem('vuex-admin'))
+                    JSON.parse(sessionStorage.vuex)
                 )
             );
             // 获取菜单路由
             this.$store.dispatch('getMenuList').then(res => {
-                this.$router.replace(sessionStorage.getItem('redirect'));
-                sessionStorage.removeItem('vuex-admin');
-                sessionStorage.removeItem('redirect');
+                this.$router.replace(sessionStorage.redirect);
+                sessionStorage.vuex;
+                sessionStorage.redirect;
             })
         }
         // 解决IE不能监听hash和参数变化

@@ -2,19 +2,49 @@
     padding: 12px 20px;
 }
 
-.el-table__header{
+// table
+.el-table--border{
     th{
         background: #f5f8fa;
     }
 }
 
+// tooltip提示
 .el-tooltip__popper{
     max-width: 600px;
     padding: 5px 10px;
     line-height: 1.8;
-    font-size: 14px;
 }
 
 .el-tooltip__popper.is-dark{
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.75);
+    &[x-placement^="top"] .popper__arrow, &[x-placement^="top"] .popper__arrow:after{
+        border-top-color: rgba(0, 0, 0, 0.75);
+    }
+    &[x-placement^="bottom"] .popper__arrow, &[x-placement^="bottom"] .popper__arrow:after{
+        border-bottom-color: rgba(0, 0, 0, 0.75);
+    }
+    &[x-placement^="left"] .popper__arrow, &[x-placement^="left"] .popper__arrow:after{
+        border-left-color: rgba(0, 0, 0, 0.75);
+    }
+    &[x-placement^="right"] .popper__arrow, &[x-placement^="right"] .popper__arrow:after{
+        border-right-color: rgba(0, 0, 0, 0.75);
+    }
+}
+
+.el-tooltip__popper.is-light {
+    border: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    &[x-placement^="top"] .popper__arrow, &[x-placement^="top"] .popper__arrow:after{
+        border-top-color: #fff;
+    }
+    &[x-placement^="bottom"] .popper__arrow, &[x-placement^="bottom"] .popper__arrow:after{
+        border-bottom-color: #fff;
+    }
+    &[x-placement^="left"] .popper__arrow, &[x-placement^="left"] .popper__arrow:after{
+        border-left-color: #fff;
+    }
+    &[x-placement^="right"] .popper__arrow, &[x-placement^="right"] .popper__arrow:after{
+        border-right-color: #fff;
+    }
 }

@@ -3,13 +3,16 @@
         <!-- 头部 -->
         <el-header class="g-head" :height="headHeight">
             <div class="g-logo" index="/index">
-                <img :src="'./logo.png'" alt="">
+                <img src="@/assets/img/logo.png" alt="">
                 <h2>管理后台</h2>
             </div>
             <!-- 暂开收起图标 -->
-            <i class="icon-collapse"
-                :class="isCollapse? 'el-icon-s-unfold':'el-icon-s-fold'"
-                @click="isCollapse = !isCollapse"></i>
+            <el-tooltip :content="isCollapse? '展开菜单':'收起菜单'" effect="dark">
+                <i class="icon-collapse"
+                    :class="isCollapse? 'el-icon-s-unfold':'el-icon-s-fold'"
+                    @click="isCollapse = !isCollapse">
+                </i>
+            </el-tooltip>
             <!-- 面包屑 -->
             <breadcrumb></breadcrumb>
             <!-- 右侧 -->
@@ -34,7 +37,7 @@
                 </el-menu>
             </el-scrollbar>
             <!-- 页面主体 -->
-            <el-main>
+            <el-main class="g-main">
                 <router-view class="g-page"></router-view>
             </el-main>
         </el-container>

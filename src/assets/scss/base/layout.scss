@@ -88,6 +88,9 @@ body{
         height: 50px;
         line-height: 50px;
     }
+    .el-menu-item{
+        padding-right: 20px;
+    }
 }
 
 .el-menu--collapse .el-submenu__title span{
@@ -97,6 +100,10 @@ body{
     display: none;
 }
 
+.g-main{
+    padding: 0;
+}
+
 .g-page{
-    margin-bottom: 20px;
+    margin: 20px;
 }
