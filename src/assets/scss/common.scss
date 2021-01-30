@@ -18,33 +18,39 @@
 
 .el-tooltip__popper.is-dark{
     background: rgba(0, 0, 0, 0.75);
-    &[x-placement^="top"] .popper__arrow, &[x-placement^="top"] .popper__arrow:after{
+    &[x-placement^="top"] .popper__arrow{
         border-top-color: rgba(0, 0, 0, 0.75);
     }
-    &[x-placement^="bottom"] .popper__arrow, &[x-placement^="bottom"] .popper__arrow:after{
+    &[x-placement^="bottom"] .popper__arrow{
         border-bottom-color: rgba(0, 0, 0, 0.75);
     }
-    &[x-placement^="left"] .popper__arrow, &[x-placement^="left"] .popper__arrow:after{
+    &[x-placement^="left"] .popper__arrow{
         border-left-color: rgba(0, 0, 0, 0.75);
     }
-    &[x-placement^="right"] .popper__arrow, &[x-placement^="right"] .popper__arrow:after{
+    &[x-placement^="right"] .popper__arrow{
         border-right-color: rgba(0, 0, 0, 0.75);
+    }
+    & .popper__arrow:after{
+        border: none;
     }
 }
 
 .el-tooltip__popper.is-light {
     border: none;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    &[x-placement^="top"] .popper__arrow, &[x-placement^="top"] .popper__arrow:after{
+    &[x-placement^="top"] .popper__arrow{
         border-top-color: #fff;
     }
-    &[x-placement^="bottom"] .popper__arrow, &[x-placement^="bottom"] .popper__arrow:after{
+    &[x-placement^="bottom"] .popper__arrow{
         border-bottom-color: #fff;
     }
-    &[x-placement^="left"] .popper__arrow, &[x-placement^="left"] .popper__arrow:after{
+    &[x-placement^="left"] .popper__arrow{
         border-left-color: #fff;
     }
-    &[x-placement^="right"] .popper__arrow, &[x-placement^="right"] .popper__arrow:after{
+    &[x-placement^="right"] .popper__arrow{
         border-right-color: #fff;
+    }
+    & .popper__arrow:after{
+        border: none;
     }
 }

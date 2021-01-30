@@ -24,8 +24,8 @@ export default {
             // 获取菜单路由
             this.$store.dispatch('getMenuList').then(res => {
                 this.$router.replace(sessionStorage.redirect);
-                sessionStorage.vuex;
-                sessionStorage.redirect;
+                sessionStorage.removeItem('vuex');
+                sessionStorage.removeItem('redirect');
             })
         }
         // 解决IE不能监听hash和参数变化
