@@ -12,21 +12,11 @@ export default {
         // 防止vuex刷新失效
         window.addEventListener('beforeunload', () => {
             sessionStorage.vuex = JSON.stringify(this.$store.state);
-            sessionStorage.redirect = this.$route.fullPath;
         }, false);
         if (sessionStorage.vuex) {
-            this.$store.replaceState(Object.assign(
-                    {},
-                    this.$store.state,
-                    JSON.parse(sessionStorage.vuex)
-                )
+            this.$store.replaceState(
+                Object.assign({}, this.$store.state, JSON.parse(sessionStorage.vuex))
             );
-            // 获取菜单路由
-            this.$store.dispatch('getMenuList').then(res => {
-                this.$router.replace(sessionStorage.redirect);
-                sessionStorage.removeItem('vuex');
-                sessionStorage.removeItem('redirect');
-            })
         }
         // 解决IE不能监听hash和参数变化
         if (!!window.ActiveXObject || 'ActiveXObject' in window) {

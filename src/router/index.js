@@ -24,7 +24,11 @@ VueRouter.prototype.push = function push (to) {
 }
 
 router.beforeEach((to, from, next) => {
-    if (to.path != '/login' && !store.state.token) {
+    let token = null;
+    if (sessionStorage.vuex) {
+        token = JSON.parse(sessionStorage.vuex).token
+    }
+    if (!(token || store.state.token) && to.path != '/login') {
         store.commit('LOGOUT');
         next('/login');
     } else {
@@ -32,4 +36,4 @@ router.beforeEach((to, from, next) => {
     }
 })
 
-export default router;
+export default router

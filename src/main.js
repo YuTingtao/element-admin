@@ -21,6 +21,12 @@ if (config.mock) { require('./mock/index') }
 
 Vue.config.productionTip = false
 
+if (sessionStorage.vuex) {
+    let menuList = JSON.parse(sessionStorage.vuex).menuList
+    if (menuList && menuList.length > 0) {
+        store.commit('setMenuList', menuList)
+    }
+}
 new Vue({
     router,
     store,

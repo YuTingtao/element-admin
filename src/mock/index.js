@@ -5,7 +5,7 @@ import commonApi from '../request/common/api/getList'
 const host = config.host
 
 Mock.setup({
-    timeout: '200-300'
+    timeout: '100-200'
 })
 
 Mock.mock(host + commonApi.getList, 'post', {

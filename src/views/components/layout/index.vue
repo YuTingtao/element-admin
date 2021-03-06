@@ -1,7 +1,7 @@
 <template>
     <el-container class="g-layout">
         <!-- 头部 -->
-        <el-header class="g-head" :height="headHeight">
+        <el-header class="g-head" height="60px">
             <div class="g-logo" index="/index">
                 <img src="@/assets/img/logo.png" alt="">
                 <h2>管理后台</h2>
@@ -54,7 +54,6 @@ export default {
     data() {
         return {
             isCollapse: false, // 菜单是否收起
-            headHeight: '60px', // head高度
         }
     },
     computed: {
@@ -67,9 +66,6 @@ export default {
         // 小屏左侧菜单默认收起
         if (document.body.offsetWidth < 1366) {
             this.isCollapse = true;
-        }
-        if (document.body.offsetWidth < 1600) {
-            this.headHeight = '50px';
         }
     },
     methods: {
