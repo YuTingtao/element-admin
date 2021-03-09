@@ -8,9 +8,7 @@ export default function(response, customFilename) {
         type = 'application/octet-stream';
     // 从头文件获取文件名
     if (response.headers['content-disposition']) {
-        filename = response.headers['content-disposition'].match(
-            /filename=(.*)/
-        )[1];
+        filename = response.headers['content-disposition'].match(/filename=(.*)/)[1];
     }
     if (customFilename) {
         filename = customFilename;
