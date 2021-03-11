@@ -19,7 +19,7 @@ const router = new VueRouter({
 
 // 防止路由重复点击报错
 const VueRouterPush = VueRouter.prototype.push;
-VueRouter.prototype.push = function push (to) {
+VueRouter.prototype.push = function push(to) {
     return VueRouterPush.call(this, to).catch(err => err);
 }
 

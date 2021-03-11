@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 import Router from '../router'
-import menuList from '@/mock/menu/data.js'
+import menuList from '@/mocks/menu/data.js'
 import menuUtil from '@/common/utils/menuUtil.js'
 
 const store = new Vuex.Store({

@@ -23,24 +23,25 @@
             <el-table-column label="日期" prop="date"></el-table-column>
             <el-table-column label="描述" prop="desc" show-overflow-tooltip></el-table-column>
         </el-table>
-        <simple-pager :total="total" :current="current" @currentChange="currentChange"></simple-pager>
+        <simple-pager :total="total" :current="filter.pageNum" @currentChange="currentChange"></simple-pager>
     </div>
 </template>
 
 <script>
 import simplePager from '@/common/components/simple-pager'
-import commonApi from '../../request/common/getList'
+import demoApi from '@/request/demo'
 export default {
     components: { simplePager },
     data() {
         return {
             filter: {
                 type: '',
-                keyword: ''
+                keyword: '',
+                pageNum: 1,
+                pageSize: 10
             },
             data: [],
             total: 100,
-            current: 1
         }
     },
     created() {
@@ -48,15 +49,19 @@ export default {
     },
     methods: {
         getList() {
-            commonApi.getList().then(res => {
+            let params = {
+                ...this.filter
+            }
+            demoApi.getList(params).then(res => {
                 if (res.status == 200) {
-                    this.data = res.data;
+                    this.data = res.content;
+                    this.total = res.total;
                 }
             })
         },
-        // 分页导航
+        // 分页
         currentChange(val) {
-            this.current = val;
+            this.filter.pageNum = val;
             this.getList();
         }
     }

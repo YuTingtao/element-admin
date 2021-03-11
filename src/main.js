@@ -17,7 +17,7 @@ Vue.mixin(mixins)
 
 // Mock模拟数据
 import config from './config'
-if (config.mock) { require('./mock/index') }
+if (config.mock) { require('./mocks/index') }
 
 Vue.config.productionTip = false
 

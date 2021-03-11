@@ -21,7 +21,7 @@ const toLogin = function() {
 }
 
 axios.defaults.timeout = 10000;
-axios.defaults.baseURL = config.host || '/api';
+// axios.defaults.baseURL = './api';
 
 // 请求拦截
 axios.interceptors.request.use(
