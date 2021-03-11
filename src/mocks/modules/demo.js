@@ -1,13 +1,13 @@
 // Mockjs官网示例：http://mockjs.com/examples.html
 import config from '@/config'
-import path from '@/request/demo/path'
+import api from '@/request/demo/api/index.api'
 import Mock from 'mockjs'
 
 const Random = Mock.Random;
 const host = config.host;
 
 export default {
-    url: host + path.getList,
+    url: host + api.getList,
     method: 'post',
     callback(data) {
         let params = data.body? JSON.parse(data.body) : {};
