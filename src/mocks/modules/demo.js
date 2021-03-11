@@ -1,29 +1,30 @@
-import Mock from 'mockjs'
+// Mockjs官网示例：http://mockjs.com/examples.html
 import config from '@/config'
 import path from '@/request/demo/path'
+import Mock from 'mockjs'
 
-const host = config.host
-
-const content = Mock.mock({
-    'content|10': [{
-        'name': '@cname',
-        'desc': '@csentence(10, 20)',
-        'email': '@email("qq.com")',
-        'address': '@county(true)',
-        'date': '@date("yyyy-MM-dd HH:mm:ss")'
-    }]
-})
-
-const res = {
-    url: host + path.getList,
-    method: 'post',
-    data: {
-        status: 200,
-        total: 100,
-        ...content
-    }
-}
+const Random = Mock.Random;
+const host = config.host;
 
 export default {
-    ...res
+    url: host + path.getList,
+    method: 'post',
+    callback(data) {
+        let params = data.body? JSON.parse(data.body) : {};
+        let content = [];
+        for(var i = 0; i < params.pageSize; i++) {
+            content.push({
+                name: Random.cname(),
+                desc: Random.csentence(10, 20),
+                email: Random.email("qq.com"),
+                address: Random.county(true),
+                date: Random.date('yyyy-MM-dd HH:mm:ss')
+            })
+        }
+        return {
+            status: 200,
+            total: 100,
+            content
+        }
+    }
 }
