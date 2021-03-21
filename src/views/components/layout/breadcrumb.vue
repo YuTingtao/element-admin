@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import bus from '../bus'
 export default {
     name: 'breadcrumb',
     props: {
@@ -31,8 +32,21 @@ export default {
         }
     },
     created() {
-        // console.log(this.$route.matched);
         this.setBreadCrumb();
+        // 手动设置面包屑
+        bus.$on('setBreadCrumb', data => {
+            if (data && data.length > 0) {
+                this.breadCrumbs = [];
+                data.forEach((item, index) => {
+                    this.breadCrumbs.push({
+                        path: item.path,
+                        meta: {
+                            title: item.title
+                        }
+                    })
+                })
+            }
+        })
     },
     methods: {
         // 设置面包屑

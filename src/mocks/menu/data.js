@@ -28,8 +28,8 @@ const menuList = [
         hidden: false,
         children: [
             {
-                path: '/simple-pager',
-                component: 'example/mocks',
+                path: '/pager',
+                component: 'example/pager',
                 redirect: '',
                 name: '',
                 alias: '',
