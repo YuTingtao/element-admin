@@ -4,11 +4,9 @@ import store from './store'
 import App from './App.vue'
 import axios from './request/intercept.js'
 
-import Element from 'element-ui';
-import './assets/scss/base/reset.css'
-import './assets/scss/base/element.scss'
-import './assets/scss/base/layout.scss'
-import './assets/scss/common.scss'
+import Element from 'element-ui'
+import './assets/css/reset.css'
+import './assets/scss/base/main.scss'
 import mixins from './common/mixins'
 
 Vue.use(Element, { size: 'medium' })
@@ -16,8 +14,9 @@ Vue.prototype.$axios = axios
 Vue.mixin(mixins)
 
 // Mock模拟数据
-import config from './config'
-if (config.mock) { require('./mocks/index') }
+if (process.env.NODE_ENV == 'development') { 
+    require('./mocks/index')
+}
 
 Vue.config.productionTip = false
 

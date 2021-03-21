@@ -1,4 +1,3 @@
 export default {
-    host: './api',
-    mock: false
+    host: './api'
 }

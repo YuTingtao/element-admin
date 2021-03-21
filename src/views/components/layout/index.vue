@@ -82,3 +82,6 @@ export default {
     }
 }
 </script>
+<style lang="scss">
+    @import '@/assets/scss/layout/layout.scss';
+</style>
