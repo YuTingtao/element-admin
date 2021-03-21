@@ -1,7 +1,6 @@
 import axios from 'axios'
 import router from '@/router'
 import store from '@/store'
-import config from '@/config'
 import { Message } from 'element-ui'
 
 const toast = function(msg) {
@@ -20,11 +19,14 @@ const toLogin = function() {
     });
 }
 
-axios.defaults.timeout = 10000;
-// axios.defaults.baseURL = './api';
+// 构建axios实例
+const instance = axios.create({
+    timeout: 10000,
+	// baseURL: './api'
+})
 
 // 请求拦截
-axios.interceptors.request.use(
+instance.interceptors.request.use(
     config => {
         if (store.state.token) {
             config.headers['token'] = store.state.token;
@@ -38,7 +40,7 @@ axios.interceptors.request.use(
 )
 
 // 响应拦截器
-axios.interceptors.response.use(
+instance.interceptors.response.use(
     res => {
         if (res.status === 200) {
             if (res.data instanceof Blob) {
@@ -77,4 +79,4 @@ axios.interceptors.response.use(
     }
 );
 
-export default axios;
+export default instance

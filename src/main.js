@@ -2,7 +2,7 @@ import Vue from 'vue'
 import router from './router'
 import store from './store'
 import App from './App.vue'
-import axios from './request/httpServer.js'
+import axios from './request/intercept.js'
 
 import Element from 'element-ui';
 import './assets/scss/base/reset.css'

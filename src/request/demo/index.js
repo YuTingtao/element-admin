@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '@/request/intercept'
 import config from '@/config'
 import api from './api/index.api'
 
