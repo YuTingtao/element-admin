@@ -1,9 +1,9 @@
-.simple-pager{
+.com-pager{
     margin-right: -1px;
     font-size: 14px;
     color: #666;
 }
-.simple-pager-item{
+.com-pager-item{
     display: inline-block;
     width: 32px;
     line-height: 28px;
@@ -29,10 +29,10 @@
         cursor: not-allowed;
     }
 }
-.simple-pager-item + .simple-pager-item{
+.com-pager-item + .com-pager-item{
     margin-left: -1px;
 }
-.simple-pager-num{
+.com-pager-num{
     display: inline-block;
     padding: 0 5px;
     line-height: 22px;

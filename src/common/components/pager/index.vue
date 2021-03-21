@@ -1,16 +1,16 @@
 <template>
-    <div class="simple-pager">
-        <i :class="['simple-pager-item', 'el-icon-d-arrow-left', currentNum == 1? 'disable':'']" @click="toFirst"></i>
-        <i :class="['simple-pager-item', 'el-icon-arrow-left', currentNum == 1? 'disable':'']" @click="toPrev"></i>
-        <div class="simple-pager-num">
+    <div class="com-pager">
+        <i :class="['com-pager-item', 'el-icon-d-arrow-left', currentNum == 1? 'disable':'']" @click="toFirst"></i>
+        <i :class="['com-pager-item', 'el-icon-arrow-left', currentNum == 1? 'disable':'']" @click="toPrev"></i>
+        <div class="com-pager-num">
             <input type="text" v-model="currentNum"
                 :style="{ 'width': 8 * String(currentNum).length + 4 + 'px' }"
                 @change="handleChange($event)"
                 @keyup.enter="$event.target.blur()">
             <span>{{'/' + pageCount}}</span>
         </div>
-        <i :class="['simple-pager-item', 'el-icon-arrow-right', currentNum == pageCount? 'disable':'']" @click="toNext"></i>
-        <i :class="['simple-pager-item', 'el-icon-d-arrow-right', currentNum == pageCount? 'disable':'']" @click="toEnd"></i>
+        <i :class="['com-pager-item', 'el-icon-arrow-right', currentNum == pageCount? 'disable':'']" @click="toNext"></i>
+        <i :class="['com-pager-item', 'el-icon-d-arrow-right', currentNum == pageCount? 'disable':'']" @click="toEnd"></i>
     </div>
 </template>
 

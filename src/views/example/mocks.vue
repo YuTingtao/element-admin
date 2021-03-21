@@ -23,15 +23,16 @@
             <el-table-column label="日期" prop="date"></el-table-column>
             <el-table-column label="描述" prop="desc" show-overflow-tooltip></el-table-column>
         </el-table>
-        <simple-pager :total="total" :current="filter.pageNum" @currentChange="currentChange"></simple-pager>
+        <!-- 分页 -->
+        <pager :total="total" :current="filter.pageNum" @currentChange="currentChange"></pager>
     </div>
 </template>
 
 <script>
-import simplePager from '@/common/components/simple-pager'
+import pager from '@/common/components/pager'
 import demoApi from '@/request/demo'
 export default {
-    components: { simplePager },
+    components: { pager },
     data() {
         return {
             filter: {
@@ -69,8 +70,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .simple-pager{
+    .com-pager{
         margin-top: 20px;
-        text-align: center;
+        text-align: right;
     }
 </style>
