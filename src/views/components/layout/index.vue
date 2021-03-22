@@ -67,7 +67,7 @@ export default {
         // 小屏左侧菜单默认收起
         if (document.body.offsetWidth <= 1366) {
             this.isCollapse = true;
-            this.height = '54px';
+            this.height = '52px';
         }
     },
     methods: {
