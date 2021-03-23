@@ -15,9 +15,16 @@ body{
     background: #3C4A59;
     color: #fff;
     .icon-collapse{
+        margin-left: 2px;
         margin-right: 20px;
         font-size: 20px;
         cursor: pointer;
+    }
+    .title{
+        margin-right: 30px;
+        min-width: 108px;
+        font-weight: bold;
+        font-size: 18px;
     }
     .el-breadcrumb__inner.is-link, .el-breadcrumb__inner a{
         font-weight: normal;
@@ -39,22 +46,6 @@ body{
         .el-icon-arrow-down{
             margin-left: 3px;
         }
-    }
-}
-
-.g-logo{
-    flex-shrink: 0;
-    margin-right: 50px;
-    line-height: 30px;
-    img{
-        display: inline-block;
-        margin-right: 10px;
-        height: 30px;
-    }
-    h2{
-        display: inline-block;
-        font-size: 15px;
-        color: #fff;
     }
 }
 
