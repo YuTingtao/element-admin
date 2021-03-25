@@ -231,9 +231,34 @@ export default {
         handleFilter(val) {
             this.$refs.tree.filter(val);
         },
-        filterNode(val, data) {
-            if (!val) return true;
-            return data[this.defaultProps.label].indexOf(val) !== -1;
+        filterNode(val, data, node) {
+            if (!val) {
+                return true;
+            }
+            // return data[this.defaultProps.label].indexOf(val) !== -1;
+            return this.getFilterTree(val, data, node);
+        },
+        getFilterTree(val, data, node) {
+            if (data[this.defaultProps.label].indexOf(val) !== -1){
+                return true;
+            }
+            let level = node.level;
+            if (level === 1) {
+                return false;
+            }
+            let parentData = node.parent;
+            let index = 0;
+            while (index < level - 1) {
+                // 如果匹配到直接返回
+                if (parentData.data[this.defaultProps.label].indexOf(val) != -1) {
+                    return true;
+                }
+                // 否则的话再往上一层做匹配
+                parentData = parentData.parent;
+                index ++;
+            }
+            // 没匹配到返回false
+            return false;
         },
         // 下拉框显示或隐藏
         visibleChange(val) {
