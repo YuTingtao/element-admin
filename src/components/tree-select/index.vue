@@ -7,18 +7,10 @@
         :filter-method="handleFilter"
         @remove-tag="removeTag"
         @visible-change=visibleChange>
-        <template v-if="multiple">
-            <el-option class="tree-select-option hidden"
-                v-for="item in selectData" :key="item[_defaultProps.value]"
-                :value="item" :label="item[_defaultProps.label]">
-            </el-option>
-        </template>
-        <template v-else>
-            <el-option class="tree-select-option hidden"
-                v-for="item in [selectData]" :key="item[_defaultProps.value]"
-                :value="item" :label="item[_defaultProps.label]">
-            </el-option>
-        </template>
+        <el-option class="tree-select-option hidden"
+            v-for="item in (multiple? selectData:[selectData])" :key="item[_defaultProps.value]"
+            :value="item" :label="item[_defaultProps.label]">
+        </el-option>
         <el-option 
             :class="{'tree-select-option': true, 'tree-select-option-simple': !multiple}"
             :key="_defaultProps.value"
