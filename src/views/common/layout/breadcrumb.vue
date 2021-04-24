@@ -1,6 +1,6 @@
 // 面包屑
 <template>
-    <el-breadcrumb :separator="separator" :separator-class="separatorClass">
+    <el-breadcrumb v-if="breadCrumbs && breadCrumbs.length > 1" :separator="separator" :separator-class="separatorClass">
         <el-breadcrumb-item v-for="item in breadCrumbs" :key="item.path" :to="item.redirect || item.path">
             {{ item.meta.title }}
         </el-breadcrumb-item>

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import editor from '@/common/components/wangEditor'
+import editor from '@/components/wangEditor'
 export default {
     components: { editor },
     data() {

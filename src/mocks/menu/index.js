@@ -1,4 +1,4 @@
-// 支持多级菜单，三级以上分组可用component: 'components/layout/empty',
+// 支持多级菜单，三级以上分组可用component: 'commons/layout/empty',
 const menuList = [
     {
         path: '/index',
@@ -16,7 +16,7 @@ const menuList = [
     },
     {
         path: '/example',
-        component: 'components/layout/view-empty',
+        component: 'common/layout/view-empty',
         redirect: '/simple-pager',
         name: '',
         alias: '',

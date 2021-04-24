@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import pager from '@/common/components/pager'
+import pager from '@/components/pager'
 import demoApi from '@/request/demo'
 export default {
     components: { pager },

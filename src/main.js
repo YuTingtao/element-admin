@@ -7,11 +7,9 @@ import axios from './request/intercept.js'
 import Element from 'element-ui'
 import './assets/css/reset.css'
 import './assets/scss/base/main.scss'
-import mixins from './common/mixins'
 
 Vue.use(Element, { size: 'medium' })
 Vue.prototype.$axios = axios
-Vue.mixin(mixins)
 
 // Mock模拟数据
 if (process.env.NODE_ENV == 'development') { 

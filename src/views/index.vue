@@ -54,7 +54,7 @@
 
 <script>
 import config from '@/config'
-import echarts from '@/common/components/echarts'
+import echarts from '@/components/echarts'
 import { mapState } from 'vuex'
 export default {
     components: { echarts },

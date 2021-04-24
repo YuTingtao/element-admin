@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import treeSelect from '@/common/components/tree-select'
+import treeSelect from '@/components/tree-select'
 export default {
     components: { treeSelect },
     data() {

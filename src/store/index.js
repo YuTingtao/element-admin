@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 import Router from '../router'
-import menuList from '@/mocks/menu/data.js'
-import menuUtil from '@/common/utils/menuUtil.js'
+import menuData from '@/mocks/menu'
+import renderMenu from '@/utils/renderMenu.js'
 
 const store = new Vuex.Store({
     state: {
@@ -27,7 +27,7 @@ const store = new Vuex.Store({
             state.menuList = data;
             let routes = [{
                 path: '/',
-                component: () => import('@/views/components/layout'),
+                component: () => import('@/views/common/layout'),
                 redirect: '/index',
                 name: '',
                 alias: '',
@@ -36,7 +36,7 @@ const store = new Vuex.Store({
                 },
                 children: []
             }];
-            menuUtil(routes[0].children, data);
+            renderMenu(routes[0].children, data);
             routes.push({
                 path: '*',
                 redirect: '/index'
@@ -46,9 +46,9 @@ const store = new Vuex.Store({
     },
     actions: {
         getMenuList(context) {
-            context.commit('setMenuList', menuList);
+            context.commit('setMenuList', menuData);
             return new Promise(resolve => {
-                resolve(menuList);
+                resolve(menuData);
             });
         }
     }
