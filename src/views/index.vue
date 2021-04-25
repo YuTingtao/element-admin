@@ -164,7 +164,7 @@ export default {
         margin-top: 20px;
     }
     .chart-item{
+        width: 100%;
         height: 300px;
-        margin: -20px;
     }
 </style>

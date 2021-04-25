@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import echarts from 'echarts/lib/echarts'
-import 'echarts/lib/chart/bar'
-import 'echarts/lib/chart/line'
-import 'echarts/lib/chart/pie'
-import 'echarts/lib/component/tooltip'
-import 'echarts/lib/component/legend'
-import walden from './walden.json' // 皮肤
+import * as echarts from 'echarts/core'
+import { BarChart, LineChart, PieChart } from 'echarts/charts'
+import { LegendComponent, TitleComponent, TooltipComponent, GridComponent } from 'echarts/components'
+import { CanvasRenderer } from 'echarts/renderers'
+echarts.use(
+    [BarChart, LineChart, PieChart, LegendComponent, TitleComponent, TooltipComponent, GridComponent, CanvasRenderer]
+)
 export default {
     name: 'echarts',
     props: {
@@ -28,9 +28,7 @@ export default {
     },
     methods: {
         drawChart() {
-            // 注册皮肤
-            echarts.registerTheme('walden', walden);
-            let chart = echarts.init(this.$refs.echarts, 'walden');
+            let chart = echarts.init(this.$refs.echarts);
             chart.setOption(this.options);
             window.addEventListener('resize', ()=> {
                 chart.resize();
@@ -43,6 +41,6 @@ export default {
 <style>
     .echarts{
         width: 100%;
-        height: 100%;
+        height: 300px;
     }
 </style>
