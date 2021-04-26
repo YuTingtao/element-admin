@@ -36,7 +36,7 @@
                 <el-card shadow="hover">
                     <div slot="header">柱状图</div>
                     <div class="chart-item">
-                        <echarts :options="optionsBar"></echarts>
+                        <echarts :option="optionBar"></echarts>
                     </div>
                 </el-card>
             </el-col>
@@ -44,7 +44,7 @@
                 <el-card shadow="hover">
                     <div slot="header">折线图</div>
                     <div class="chart-item">
-                        <echarts :options="optionPie"></echarts>
+                        <echarts :option="optionPie"></echarts>
                     </div>
                 </el-card>
             </el-col>
@@ -60,7 +60,7 @@ export default {
     components: { echarts },
     data() {
         return {
-            optionsBar: {
+            optionBar: {
                 tooltip: {},
                 xAxis: {
                     data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]

@@ -13,7 +13,7 @@ echarts.use(
 export default {
     name: 'echarts',
     props: {
-        options: {
+        option: {
             type: Object,
             default() {
                 return {}
@@ -29,7 +29,7 @@ export default {
     methods: {
         drawChart() {
             let chart = echarts.init(this.$refs.echarts);
-            chart.setOption(this.options);
+            chart.setOption(this.option);
             window.addEventListener('resize', ()=> {
                 chart.resize();
             })
