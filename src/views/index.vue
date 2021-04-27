@@ -36,7 +36,7 @@
                 <el-card shadow="hover">
                     <div slot="header">柱状图</div>
                     <div class="chart-item">
-                        <echarts :option="optionBar"></echarts>
+                        <echarts ref="barChart" :option="optionBar"></echarts>
                     </div>
                 </el-card>
             </el-col>
@@ -117,7 +117,10 @@ export default {
         })
     },
     created() {
-        
+        setTimeout(() => {
+            this.optionBar.series[0].data = [7, 23, 30, 18, 15, 20];
+            this.$refs.barChart.setOption(this.optionBar);
+        }, 3000)
     }
 }
 </script>

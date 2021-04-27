@@ -21,19 +21,21 @@ export default {
         }
     },
     data() {
-        return {}
+        return {
+            chart: null
+        }
     },
     mounted() {
-        this.drawChart();
+        this.chart = echarts.init(this.$refs.echarts);
+        this.setOption();
+        window.addEventListener('resize', ()=> {
+            this.chart.resize();
+        })
     },
     methods: {
-        drawChart() {
-            let chart = echarts.init(this.$refs.echarts);
-            chart.setOption(this.option);
-            window.addEventListener('resize', ()=> {
-                chart.resize();
-            })
-        },
+        setOption() {
+            this.chart.setOption(this.option);
+        }
     }
 }
 </script>
