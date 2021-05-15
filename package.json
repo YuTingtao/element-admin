@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.5",
-    "echarts": "^5.1.0",
+    "echarts": "^5.1.1",
     "element-ui": "^2.15.1",
     "vue": "^2.6.11",
     "vue-router": "^3.4.3",
