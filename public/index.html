@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script type="text/javascript">
+        // 移动端rem
+        !(function(doc, win) {
+            var docEle = doc.documentElement,
+                event = 'onorientationchange' in window ? 'orientationchange' : 'resize', // 判断是屏幕旋转还是resize
+                fn = function() {
+                    var width = docEle.clientWidth;
+                    width && (docEle.style.fontSize = (width / 7.5) + 'px');
+                };
+            win.addEventListener(event, fn, false);
+            doc.addEventListener('DOMContentLoaded', fn, false);
+        }(document, window));
+    </script>
 </head>
 <body>
     <noscript>

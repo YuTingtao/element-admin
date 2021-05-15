@@ -1,4 +1,7 @@
-function generateMenu(routes, data) {
+/* 
+ * 生成router菜单
+ */
+function renderMenu(routes, data) {
     // 排序
     let menuArr = data.sort((a, b) => { return a.order - b.order });
     menuArr.forEach(item => {
@@ -15,12 +18,12 @@ function generateMenu(routes, data) {
             menu.component = () => import('@/views/'+item.component+'.vue');
         }
         if(item.children && item.children.length > 0){
-            generateMenu(menu.children, item.children)
+            renderMenu(menu.children, item.children)
         }
         routes.push(menu);
     })
 }
 
 export default (routes, data) => {
-    generateMenu(routes, data)
+    renderMenu(routes, data)
 }

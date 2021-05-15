@@ -56,6 +56,7 @@
 import config from '@/config'
 import echarts from '@/components/echarts'
 import { mapState } from 'vuex'
+import debounce from '@/utils/debounce'
 export default {
     components: { echarts },
     data() {
@@ -121,6 +122,9 @@ export default {
             this.optionBar.series[0].data = [7, 23, 30, 18, 15, 20];
             this.$refs.barChart.setOption(this.optionBar);
         }, 3000)
+    },
+    methods: {
+        
     }
 }
 </script>
