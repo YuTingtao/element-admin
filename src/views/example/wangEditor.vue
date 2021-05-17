@@ -1,9 +1,8 @@
 <template>
     <div>
         <h3>富文本编辑器</h3>
-        <editor class="editor" ref="editor"></editor>
-        <el-button type="primary" @click="setContent('<p>这是js插入的内容</p>')">设置内容</el-button>
-        <el-button type="primary" @click="getContent">获取内容</el-button>
+        <editor class="editor" :value="content" ref="editor"></editor>
+        <el-button type="primary" @click="getContent">显示内容</el-button>
     </div>
 </template>
 
@@ -13,16 +12,14 @@ export default {
     components: { editor },
     data() {
         return {
-            content: ''
+            content: '<h3>wangEditor富文本编辑器</h3>'
         }
     },
     methods: {
-        setContent(cont) {
-            this.$refs.editor.setContent(cont);
+        getContent(cont) {
+            this.content = this.$refs.editor.getContent()
+            this.$alert(this.content);
         },
-        getContent() {
-            this.$alert(this.$refs.editor.getContent());
-        }
     }
 }
 </script>

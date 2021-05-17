@@ -1,21 +1,21 @@
 <template>
-    <div ref="wangEditor" class="wangEditor"></div>
+    <div class="wangEditor"></div>
 </template>
 
 <script>
 import wangEditor from 'wangeditor'
 export default {
     props: {
+        value: {
+            type: String,
+            default: null
+        },
         // 菜单
         menus: {
             type: Array,
             default() {
                 return []
             }
-        },
-        value: {
-            type: String,
-            default: ''
         },
         // 图片上传接口地址
         uploadImgServer: {
@@ -42,7 +42,7 @@ export default {
         }
     },
     mounted() {
-        const editor = new wangEditor(this.$refs.wangEditor);
+        const editor = new wangEditor(this.$el);
         // 菜单配置
         editor.config.menus = [
             'head',
