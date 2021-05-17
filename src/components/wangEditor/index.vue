@@ -13,7 +13,7 @@ export default {
                 return []
             }
         },
-        data: {
+        value: {
             type: String,
             default: ''
         },
@@ -85,7 +85,7 @@ export default {
         };
         editor.create();
         this.editor = editor;
-        this.editor.txt.html(this.data);
+        this.editor.txt.html(this.value);
     },
     beforeDestroy() {
         // 销毁编辑器
