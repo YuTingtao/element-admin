@@ -20,5 +20,12 @@ module.exports = {
                 additionalData: `@import "~@/assets/scss/base/variable.scss";`
             }
         }
+    },
+    // 通过Babel显式转译的依赖
+    transpileDependencies: [
+        'echarts'
+    ],
+    devServer: {
+        open: true, // 自动启动浏览器
     }
 }

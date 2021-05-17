@@ -13,6 +13,15 @@ export default {
                 return []
             }
         },
+        data: {
+            type: String,
+            default: ''
+        },
+        // 图片上传接口地址
+        uploadImgServer: {
+            type: String,
+            default: '/'
+        },
         height: {
             type: Number,
             default: 300
@@ -69,13 +78,14 @@ export default {
         // 取消自动 focus
         editor.config.focus = false
         // 配置server接口地址
-        editor.config.uploadImgServer = '/upload-img';
+        editor.config.uploadImgServer = this.uploadImgServer;
         // change回调
         editor.onchange = (html) => {
             this.content = html;
         };
         editor.create();
         this.editor = editor;
+        this.editor.txt.html(this.data);
     },
     beforeDestroy() {
         // 销毁编辑器
