@@ -13,6 +13,9 @@ export default {
         window.addEventListener('beforeunload', () => {
             sessionStorage.vuex = JSON.stringify(this.$store.state);
         }, false);
+        window.addEventListener('pagehide', () => {
+            sessionStorage.vuex = JSON.stringify(this.$store.state);
+        }, false);
         if (sessionStorage.vuex) {
             this.$store.replaceState(
                 Object.assign({}, this.$store.state, JSON.parse(sessionStorage.vuex))
