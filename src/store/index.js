@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 import Router from '../router'
 import menuData from '@/mocks/menu'
-import renderMenu from '@/utils/renderMenu.js'
+import renderMenu from '@/utils/renderMenu'
 
 const store = new Vuex.Store({
     state: {
@@ -47,9 +47,7 @@ const store = new Vuex.Store({
     actions: {
         getMenuList(context) {
             context.commit('setMenuList', menuData);
-            return new Promise(resolve => {
-                resolve(menuData);
-            });
+            return Promise.resolve(menuData);
         }
     }
 })

@@ -10,15 +10,18 @@ export default {
     },
     created() {
         // 防止vuex刷新失效
-        window.addEventListener('beforeunload', () => {
-            sessionStorage.vuex = JSON.stringify(this.$store.state);
-        }, false);
-        window.addEventListener('pagehide', () => {
-            sessionStorage.vuex = JSON.stringify(this.$store.state);
-        }, false);
-        if (sessionStorage.vuex) {
+        if (/iphone|ipad|ipod/.test(navigator.userAgent)) {
+            window.addEventListener('pagehide', () => {
+                sessionStorage.vuexState = JSON.stringify(this.$store.state);
+            }, false);
+        } else {
+            window.addEventListener('beforeunload', () => {
+                sessionStorage.vuexState = JSON.stringify(this.$store.state);
+            }, false);
+        }
+        if (sessionStorage.vuexState) {
             this.$store.replaceState(
-                Object.assign({}, this.$store.state, JSON.parse(sessionStorage.vuex))
+                Object.assign({}, this.$store.state, JSON.parse(sessionStorage.vuexState))
             );
         }
         // 解决IE不能监听hash和参数变化

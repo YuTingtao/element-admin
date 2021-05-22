@@ -2,7 +2,7 @@ import Vue from 'vue'
 import router from './router'
 import store from './store'
 import App from './App.vue'
-import axios from './request/intercept.js'
+import axios from './request/intercept'
 
 import Element from 'element-ui'
 import './assets/css/reset.css'
@@ -18,10 +18,10 @@ if (process.env.NODE_ENV == 'development') {
 
 Vue.config.productionTip = false
 
-if (sessionStorage.vuex) {
-    let menuList = JSON.parse(sessionStorage.vuex).menuList
+if (sessionStorage.vuexState) {
+    let menuList = JSON.parse(sessionStorage.vuexState).menuList;
     if (menuList && menuList.length > 0) {
-        store.commit('setMenuList', menuList)
+        store.commit('setMenuList', menuList);
     }
 }
 new Vue({

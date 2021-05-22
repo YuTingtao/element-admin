@@ -24,11 +24,8 @@ VueRouter.prototype.push = function push(to) {
 }
 
 router.beforeEach((to, from, next) => {
-    let token = null;
-    if (sessionStorage.vuex) {
-        token = JSON.parse(sessionStorage.vuex).token
-    }
-    if (!(token || store.state.token) && to.path != '/login') {
+    let token = store.state.token || JSON.parse(sessionStorage.vuexState || '{}').token;
+    if (!(token) && to.path != '/login') {
         store.commit('LOGOUT');
         next('/login');
     } else {
