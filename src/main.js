@@ -18,8 +18,8 @@ if (process.env.NODE_ENV == 'development') {
 
 Vue.config.productionTip = false
 
-if (sessionStorage.vuexState) {
-    let menuList = JSON.parse(sessionStorage.vuexState).menuList;
+if (sessionStorage.vuex) {
+    let menuList = JSON.parse(sessionStorage.vuex).menuList;
     if (menuList && menuList.length > 0) {
         store.commit('setMenuList', menuList);
     }

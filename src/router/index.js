@@ -24,7 +24,7 @@ VueRouter.prototype.push = function push(to) {
 }
 
 router.beforeEach((to, from, next) => {
-    let token = store.state.token || JSON.parse(sessionStorage.vuexState || '{}').token;
+    let token = store.state.token || JSON.parse(sessionStorage.vuex || '{}').token;
     if (!(token) && to.path != '/login') {
         store.commit('LOGOUT');
         next('/login');

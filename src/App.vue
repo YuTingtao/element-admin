@@ -12,16 +12,16 @@ export default {
         // 防止vuex刷新失效
         if (/iphone|ipad|ipod/.test(navigator.userAgent)) {
             window.addEventListener('pagehide', () => {
-                sessionStorage.vuexState = JSON.stringify(this.$store.state);
+                sessionStorage.vuex = JSON.stringify(this.$store.state);
             }, false);
         } else {
             window.addEventListener('beforeunload', () => {
-                sessionStorage.vuexState = JSON.stringify(this.$store.state);
+                sessionStorage.vuex = JSON.stringify(this.$store.state);
             }, false);
         }
-        if (sessionStorage.vuexState) {
+        if (sessionStorage.vuex) {
             this.$store.replaceState(
-                Object.assign({}, this.$store.state, JSON.parse(sessionStorage.vuexState))
+                Object.assign({}, this.$store.state, JSON.parse(sessionStorage.vuex))
             );
         }
         // 解决IE不能监听hash和参数变化
