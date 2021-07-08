@@ -5,11 +5,11 @@ Mock.setup({
     timeout: '100-200'
 })
 
-const mockFiles = require.context('./modules', false, /\.js$/);
+const ctx = require.context('./modules', false, /\.js$/);
 const mocks = [];
 
-mockFiles.keys().forEach(key => {
-    mocks.push(mockFiles(key).default)
+ctx.keys().forEach(key => {
+    mocks.push(ctx(key).default)
 })
 
 mocks.forEach(item => {

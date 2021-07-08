@@ -1,9 +1,5 @@
 $primary: #409eff;
 
-.primary{
-    color: $primary;
-}
-
 @mixin ellipsis($line: 1) {
     overflow: hidden;
     text-overflow: ellipsis;

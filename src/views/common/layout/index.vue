@@ -1,11 +1,11 @@
 <template>
     <el-container class="g-layout">
         <!-- 头部 -->
-        <el-header class="g-head" :height="height">
+        <el-header class="g-head" height="60px">
             <!-- 暂开收起图标 -->
             <i class="icon-collapse"
                 :class="isCollapse? 'el-icon-s-unfold':'el-icon-s-fold'"
-                @click="isCollapse = !isCollapse">
+                @click="toggleSide">
             </i>
             <h2 class="title">管理后台</h2>
             <!-- 面包屑 -->
@@ -49,7 +49,6 @@ export default {
     data() {
         return {
             isCollapse: false, // 菜单是否收起
-            height: '60px'
         }
     },
     computed: {
@@ -58,14 +57,10 @@ export default {
             userInfo: state => state.userInfo, // 用户信息
         })
     },
-    created() {
-        // 小屏左侧菜单默认收起
-        if (document.body.offsetWidth <= 1400) {
-            this.isCollapse = true;
-            this.height = '52px';
-        }
-    },
     methods: {
+        toggleSide() {
+            this.isCollapse = !this.isCollapse;
+        },
         rightCommand(val) {
             switch (val) {
                 case 'logout':
