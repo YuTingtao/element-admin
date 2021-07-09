@@ -5,10 +5,10 @@
         <div class="com-pager-num">
             <input type="text" v-model="currentNum"
                 :style="{ 'width': 8 * String(currentNum).length + 4 + 'px' }"
-                @input="handleInput($event)"
-                @change="handleChange($event)"
+                @input="handleInput"
+                @change="handleChange"
                 @keyup.enter="$event.target.blur()">
-            <span>{{'/' + pageCount}}</span>
+            <span>{{' / ' + pageCount}}</span>
         </div>
         <i :class="['com-pager-item', 'el-icon-arrow-right', currentNum == pageCount? 'disable':'']" @click="toNext"></i>
         <i :class="['com-pager-item', 'el-icon-d-arrow-right', currentNum == pageCount? 'disable':'']" @click="toEnd"></i>
@@ -50,24 +50,28 @@ export default {
         toFirst() {
             if (this.currentNum > 1) {
                 this.currentNum = 1;
+                this.$emit('update:current', this.currentNum);
                 this.$emit('currentChange', this.currentNum);
             }
         },
         toEnd() {
             if (this.currentNum < this.pageCount) {
                 this.currentNum = this.pageCount;
+                this.$emit('update:current', this.currentNum);
                 this.$emit('currentChange', this.currentNum);
             }
         },
         toPrev() {
             if (this.currentNum > 1) {
                 this.currentNum--;
+                this.$emit('update:current', this.currentNum);
                 this.$emit('currentChange', this.currentNum);
             }
         },
         toNext() {
             if (this.currentNum < this.pageCount) {
                 this.currentNum++;
+                this.$emit('update:current', this.currentNum);
                 this.$emit('currentChange', this.currentNum);
             }
         },
@@ -85,6 +89,7 @@ export default {
             } else {
                 this.currentNum = value;
             }
+            this.$emit('update:current', this.currentNum);
             this.$emit('currentChange', this.currentNum);
         }
     }

@@ -24,7 +24,7 @@
             <el-table-column label="描述" prop="desc" show-overflow-tooltip></el-table-column>
         </el-table>
         <!-- 分页 -->
-        <pager :total="total" :current="filter.pageNum" @currentChange="currentChange"></pager>
+        <pager :total="total" :current.sync="filter.pageNum" @currentChange="getList"></pager>
     </div>
 </template>
 
@@ -60,18 +60,13 @@ export default {
                 }
             })
         },
-        // 分页
-        currentChange(val) {
-            this.filter.pageNum = val;
-            this.getList();
-        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
     .com-pager{
-        margin-top: 20px;
-        text-align: right;
+        margin: 20px 0;
+        text-align: center;
     }
 </style>
