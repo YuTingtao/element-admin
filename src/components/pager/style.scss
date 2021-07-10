@@ -34,7 +34,6 @@
 }
 .com-pager-num{
     display: inline-block;
-    padding: 0 15px;
     line-height: 22px;
     background: #fff;
     vertical-align: bottom;
@@ -44,16 +43,18 @@
         position: relative;
         z-index: 1;
         box-sizing: content-box;
-        width: 12px;
-        min-width: 12px;
+        min-width: 8px;
         max-width: 100px;
         height: 32px;
         line-height: 32px;
-        padding: 0 20px 0 0;
-        margin-right: -20px;
+        padding: 0 45px 0 15px;
+        margin-right: -45px;
         border: none;
-        text-align: center;
+        text-align: right;
         color: inherit;
         background: transparent;
+    }
+    span{
+        margin-right: 15px;
     }
 }

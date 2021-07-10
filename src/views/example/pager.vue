@@ -42,7 +42,7 @@ export default {
                 pageSize: 10
             },
             data: [],
-            total: 100,
+            total: 0,
         }
     },
     created() {

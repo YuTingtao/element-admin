@@ -1,17 +1,18 @@
 <template>
     <div class="com-pager">
-        <i :class="['com-pager-item', 'el-icon-d-arrow-left', currentNum == 1? 'disable':'']" @click="toFirst"></i>
-        <i :class="['com-pager-item', 'el-icon-arrow-left', currentNum == 1? 'disable':'']" @click="toPrev"></i>
+        <i :class="['com-pager-item', 'el-icon-d-arrow-left', current == 1? 'disable':'']" @click="toFirst"></i>
+        <i :class="['com-pager-item', 'el-icon-arrow-left', current == 1? 'disable':'']" @click="toPrev"></i>
         <div class="com-pager-num">
-            <input type="text" v-model="currentNum"
-                :style="{ 'width': 8 * String(currentNum).length + 4 + 'px' }"
-                @input="handleInput"
-                @change="handleChange"
+            <input type="text"
+                :style="{ 'width': inputWidth }"
+                :value="current"
+                @input="onInput"
+                @change="onChange"
                 @keyup.enter="$event.target.blur()">
             <span>{{' / ' + pageCount}}</span>
         </div>
-        <i :class="['com-pager-item', 'el-icon-arrow-right', currentNum == pageCount? 'disable':'']" @click="toNext"></i>
-        <i :class="['com-pager-item', 'el-icon-d-arrow-right', currentNum == pageCount? 'disable':'']" @click="toEnd"></i>
+        <i :class="['com-pager-item', 'el-icon-arrow-right', current == pageCount? 'disable':'']" @click="toNext"></i>
+        <i :class="['com-pager-item', 'el-icon-d-arrow-right', current == pageCount? 'disable':'']" @click="toEnd"></i>
     </div>
 </template>
 
@@ -32,65 +33,59 @@ export default {
         },
     },
     data() {
-        return {
-            currentNum: this.current
-        }
+        return {}
     },
     computed: {
         pageCount() {
-            return Math.ceil(this.total / this.pageSize)
-        }
-    },
-    watch: {
-        current(val) {
-            this.currentNum = val;
+            return Math.ceil((this.total || 1) / this.pageSize);
+        },
+        inputWidth() {
+            return 8 * String(this.current).length + 'px';
         }
     },
     methods: {
         toFirst() {
-            if (this.currentNum > 1) {
-                this.currentNum = 1;
-                this.$emit('update:current', this.currentNum);
-                this.$emit('currentChange', this.currentNum);
+            if (this.current > 1) {
+                this.$emit('update:current', 1);
+                this.$emit('currentChange', 1);
             }
         },
         toEnd() {
-            if (this.currentNum < this.pageCount) {
-                this.currentNum = this.pageCount;
-                this.$emit('update:current', this.currentNum);
-                this.$emit('currentChange', this.currentNum);
+            if (this.current < this.pageCount) {
+                this.$emit('update:current', this.pageCount);
+                this.$emit('currentChange', this.pageCount);
             }
         },
         toPrev() {
-            if (this.currentNum > 1) {
-                this.currentNum--;
-                this.$emit('update:current', this.currentNum);
-                this.$emit('currentChange', this.currentNum);
+            if (this.current > 1) {
+                let value = this.current - 1;
+                this.$emit('update:current', value);
+                this.$emit('currentChange', value);
             }
         },
         toNext() {
-            if (this.currentNum < this.pageCount) {
-                this.currentNum++;
-                this.$emit('update:current', this.currentNum);
-                this.$emit('currentChange', this.currentNum);
+            if (this.current < this.pageCount) {
+                let value = this.current + 1;
+                this.$emit('update:current', value);
+                this.$emit('currentChange', value);
             }
         },
-        handleInput(e) {
+        onInput(e) {
             let value = e.target.value;
             value = value.replace(/\D/g,'');
-            this.currentNum = value;
+            e.target.value = value;
+            e.target.style.width = 8 * String(value || 1).length + 'px';
         },
-        handleChange(e) {
+        onChange(e) {
             let value = Number(e.target.value);
             if (value < 1) {
-                this.currentNum = 1;
+                value = 1;
             } else if (value > this.pageCount) {
-                this.currentNum = this.pageCount || 1;
-            } else {
-                this.currentNum = value;
+                value = this.pageCount || 1;
             }
-            this.$emit('update:current', this.currentNum);
-            this.$emit('currentChange', this.currentNum);
+            e.target.value = value;
+            this.$emit('update:current', value);
+            this.$emit('currentChange', value);
         }
     }
 }
