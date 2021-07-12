@@ -40,73 +40,30 @@ export default {
                 id: 5
             },
             treeData: [{
-                name: '一级 1',
+                name: '一级1',
                 id: 1,
                 child: [{
-                    name: '二级 1-1',
+                    name: '二级1',
                     id: 2,
                     child: [{
-                        name: '三级 1-1-1',
+                        name: '三级1',
                         id: 3
                     }]
                 }]
-                }, {
-                name: '一级 2',
+            }, {
+                name: '一级2',
                 id: 4,
                 child: [{
-                    name: '二级 2-1',
+                    name: '二级2',
                     id: 5,
                     child: [{
-                        name: '三级 2-1-1',
+                        name: '三级2',
                         id: 6
-                    }]
-                }, {
-                    name: '二级 2-2',
-                    id: 7,
-                    child: [{
-                        name: '三级 2-2-1',
-                        id: 8
                     }]
                 }]
             }],
         }
     },
-    mounted() {
-        this.form = {
-            ids: [6, 7],
-            id: 6
-        };
-        this.treeData = [{
-            name: '一级 11',
-            id: 1,
-            child: [{
-                name: '二级 1-1',
-                id: 2,
-                child: [{
-                    name: '三级 1-1-1',
-                    id: 3
-                }]
-            }]
-            }, {
-            name: '一级 2',
-            id: 4,
-            child: [{
-                name: '二级 2-1',
-                id: 5,
-                child: [{
-                    name: '三级 2-1-1',
-                    id: 6
-                }]
-            }, {
-                name: '二级 2-2',
-                id: 7,
-                child: [{
-                    name: '三级 2-2-1',
-                    id: 8
-                }]
-            }]
-        }]
-    }
 }
 </script>
 

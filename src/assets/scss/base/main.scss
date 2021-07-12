@@ -6,6 +6,12 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";
 
+// 主色
+.primary{
+    color: $primary;
+}
+
+// el-card
 .el-card__header{
     padding: 12px 20px;
 }
@@ -63,6 +69,19 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
     }
 }
 
-.primary{
-    color: $primary;
+// el-input
+.el-input__inner{
+    line-height: 38px;
+}
+.el-input--medium .el-input__inner{
+    line-height: 34px;
+}
+.el-input--small .el-input__inner{
+    line-height: 30px;
+}
+.el-input--mini .el-input__inner{
+    line-height: 26px;
+}
+.el-select__input{
+    margin-left: 6px;
 }
