@@ -1,8 +1,8 @@
-// 支持多级菜单，三级以上分组可用component: 'commons/layout/empty',
+// 支持多级菜单，三级以上分组可用component: '/commons/layout/empty',
 const menuList = [
     {
         path: '/index',
-        component: 'index',
+        component: '/index/index',
         name: '',
         redirect: '',
         alias: '',
@@ -16,7 +16,7 @@ const menuList = [
     },
     {
         path: '/example',
-        component: 'common/layout/view-empty',
+        component: '/common/layout/view-empty',
         redirect: '/simple-pager',
         name: '',
         alias: '',
@@ -29,7 +29,7 @@ const menuList = [
         children: [
             {
                 path: '/pager',
-                component: 'example/pager',
+                component: '/example/pager',
                 redirect: '',
                 name: '',
                 alias: '',
@@ -42,7 +42,7 @@ const menuList = [
             },
             {
                 path: '/tree-select',
-                component: 'example/tree-select',
+                component: '/example/tree-select',
                 redirect: '',
                 name: '',
                 alias: '',
@@ -55,7 +55,7 @@ const menuList = [
             },
             {
                 path: '/wangEditor',
-                component: 'example/wangEditor',
+                component: '/example/wangEditor',
                 redirect: '',
                 name: '',
                 alias: '',

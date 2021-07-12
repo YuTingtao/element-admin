@@ -15,7 +15,7 @@ function renderMenu(routes, data) {
             children: []
         }
         if (item.component) {
-            menu.component = () => import('@/views/'+item.component+'.vue');
+            menu.component = () => import('@/views'+item.component+'.vue');
         }
         if(item.children && item.children.length > 0){
             renderMenu(menu.children, item.children)

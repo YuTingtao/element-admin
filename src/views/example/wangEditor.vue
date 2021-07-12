@@ -12,7 +12,7 @@ export default {
     components: { editor },
     data() {
         return {
-            content: '<h3>wangEditor富文本编辑器</h3>'
+            content: '<p>wangEditor富文本编辑器</p>'
         }
     },
     methods: {

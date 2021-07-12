@@ -9,7 +9,7 @@ const router = new VueRouter({
     routes: [
         {
             path: '/login',
-            component: ()=> import('@/views/login.vue'),
+            component: ()=> import('@/views/login/login.vue'),
             meta: {
                 title: '登录'
             }
