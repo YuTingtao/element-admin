@@ -1,10 +1,12 @@
 export default () => {
-    let utilFiles = require.context('./', false, /\.js$/);
-    console.log(utilFiles);
+    let ctx = require.context('./', false, /\.js$/);
+    // console.log(ctx);
     let obj = new Object();
-    utilFiles.keys().forEach(key => {
-        if (key === './index.js') return;
-        let utilName = key.replace(/^\.\//, '').replace(/\.js/, '');
-        obj[utilName] = utilFiles(key).default;
+    ctx.keys().forEach(key => {
+        if (key === './index.js') {
+            return false;
+        }
+        let name = key.replace(/^\.\//, '').replace(/\.js/, '');
+        obj[name] = ctx(key).default;
     });
 }
